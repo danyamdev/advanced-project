@@ -25,7 +25,7 @@ const SingIn = () => {
 			.required("Обязательное поле."),
 		phone: yup
 			.string()
-			.matches(phoneRegExp, 'Phone number is not valid')
+			.matches(phoneRegExp, "Пожалуйста введите корректный номер.")
 			.min(10, "Количество символов - 10")
 			.max(10, "Количество символов - 10")
 			.required("Обязательное поле."),
