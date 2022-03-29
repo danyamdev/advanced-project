@@ -6,28 +6,9 @@ import Tab from '@mui/material/Tab';
 import SettingsIcon from '@mui/icons-material/Settings';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
-import SingleCarPark from "../SingleCarPark/SingleCarPark";
-import SpareParts from "../SpareParts/SpareParts";
+import { TabPanel, SingleCarPark, SpareParts } from "../index";
 
 import "./styles.scss";
-
-const TabPanel = ({children, value, index, ...other}) => {
-	return (
-		<div
-			role="tabpanel"
-			hidden={value !== index}
-			id={`simple-tabpanel-${index}`}
-			aria-labelledby={`simple-tab-${index}`}
-			{...other}
-		>
-			{value === index && (
-				<Box sx={{p: 3}}>
-					<Typography>{children}</Typography>
-				</Box>
-			)}
-		</div>
-	);
-};
 
 const ItemPage = () => {
 	const [value, setValue] = useState(0);
@@ -57,7 +38,6 @@ const ItemPage = () => {
 								aria-label="icon label tabs example">
 								<Tab icon={<DirectionsCarIcon/>} label="Автопарк"/>
 								<Tab icon={<SettingsIcon/>} label="Запчасти"/>
-								{/*<Tab icon={<AssignmentIcon />} label="История" />*/}
 							</Tabs>
 						</Box>
 						<TabPanel value={value} index={0}>
