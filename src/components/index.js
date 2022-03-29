@@ -1,4 +1,8 @@
 export { default as Header } from "./Header/Header";
+export { default as TabPanel } from  "./TabPanel/TabPanel";
+export { default as SingleCarPark } from "./SingleCarPark/SingleCarPark";
+export { default as Point } from "./Point/Point";
+export { default as SpareParts } from "./SpareParts/SpareParts";
 export { default as MainPage } from "./MainPage/MainPage";
 export { default as ItemPage } from "./ItemPage/ItemPage";
 export { default as LogIn } from "./LogIn/LogIn";

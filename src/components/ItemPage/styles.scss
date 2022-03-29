@@ -1,8 +1,10 @@
-.MuiBox-root {
-  margin: auto;
-}
+.item-page {
+  .MuiBox-root {
+    margin: auto;
+  }
 
-.MuiTabs-flexContainer {
-  display: flex;
-  justify-content: space-around;
+  .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-around;
+  }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Point from "../Point/Point";
+import { Point } from "../index";
 
 import "./styles.scss";
 
