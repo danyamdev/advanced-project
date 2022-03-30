@@ -5,7 +5,7 @@ const stations = [
 		city: "г Ростов-на-Дону",
 		street: "пер Технологический",
 		home: "зд 1 стр 3",
-		phone: "(918) 581-36-69",
+		phone: "+7 (918) 581-36-69",
 		carParks: [
 			{
 				id: "1cp",
@@ -19,7 +19,7 @@ const stations = [
 								id: "1sp",
 								name: "Диск тормозной, задний",
 								price: 1000,
-								count: 5,
+								count: 0,
 							},
 							{
 								id: "2sp",
@@ -31,7 +31,7 @@ const stations = [
 								id: "3sp",
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
-								count: 3,
+								count: 0,
 							},
 						]
 					},
@@ -217,11 +217,11 @@ const stations = [
 	},
 	{
 		id: "2s",
-		name: "ИП",
+		name: "ИП Орлов М.А.",
 		city: "г Ростов-на-Дону",
 		street: "пер Машиностроительный",
 		home: "д 11",
-		phone: "(911) 581-36-69",
+		phone: "+7 (911) 581-36-69",
 		carParks: [
 			{
 				id: "1cp",
@@ -301,7 +301,7 @@ const stations = [
 								id: "1sp",
 								name: "Фильтр воздушный",
 								price: 3000,
-								count: 5,
+								count: 0,
 							},
 							{
 								id: "2sp",

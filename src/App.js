@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import React from "react";
+import {Route, Switch} from "react-router-dom";
 
-import { Header, ProtectedRoute } from "./components";
+import {Header, ProtectedRoute} from "./components";
 import gettingDataFromLS from "./helpers/gettingDataFromLS";
 import routes from "./routes/routes";
 import users from "./mocks/users";
@@ -10,11 +10,8 @@ import stations from "./mocks/stations";
 import "./default.scss";
 
 const App = () => {
-
-	useEffect(() => {
-		gettingDataFromLS(users, "users");
-		gettingDataFromLS(stations, "stations");
-	}, [])
+	gettingDataFromLS(users, "users");
+	gettingDataFromLS(stations, "stations");
 
 	return (
 		<>
@@ -33,7 +30,7 @@ const App = () => {
 							key={index}
 							path={route.path}
 							exact={route.exact}
-							render={() => <route.component />}
+							render={() => <route.component/>}
 						/>
 					)
 				)}

@@ -6,26 +6,23 @@ import ListItemText from "@mui/material/ListItemText";
 import {Accordion, AccordionDetails, AccordionSummary} from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-const SingleCarPark = () => (
+const SingleCarPark = ({ name, cars }) => (
 	<Accordion sx={{ marginBottom: 3}}>
 		<AccordionSummary
 			aria-controls="panel1a-content"
 			id="panel1a-header"
 		>
-			<Typography>Mazda</Typography>
+			<Typography>{name}</Typography>
 		</AccordionSummary>
 		<AccordionDetails>
 			<List>
-				<ListItem disablePadding>
-					<ListItemButton>
-						<ListItemText primary="POLO"/>
-					</ListItemButton>
-				</ListItem>
-				<ListItem disablePadding>
-					<ListItemButton>
-						<ListItemText primary="POLO"/>
-					</ListItemButton>
-				</ListItem>
+				{cars?.map(car => (
+					<ListItem key={car.id} disablePadding>
+						<ListItemButton>
+							<ListItemText primary={`${car.name}`}/>
+						</ListItemButton>
+					</ListItem>
+				))}
 			</List>
 		</AccordionDetails>
 	</Accordion>
