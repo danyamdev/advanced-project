@@ -1,13 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Formik } from "formik";
+import React, {useState} from "react";
+import {Link, Redirect} from "react-router-dom";
+import {Formik} from "formik";
 import * as yup from "yup";
 import Card from "@mui/material/Card";
-import { Button, TextField } from "@mui/material";
+import {Button, TextField} from "@mui/material";
+import Checkbox from '@mui/material/Checkbox';
 
 import "./styles.scss";
 
 const SingIn = () => {
+	const [isAuth, setIsAuth] = useState(false);
+	const [error, setError] = useState(false);
+
+	const users = JSON.parse(localStorage.getItem("users"));
+
 	const validationSchema = yup.object().shape({
 		name: yup
 			.string()
@@ -32,140 +38,179 @@ const SingIn = () => {
 			.required("Обязательное поле."),
 	});
 
-	const onSubmitForm = async ({name, surname, patronymic, email, password}) => {
-		try {
-			console.log('===>name', name);
-			console.log('===>surname', surname);
-			console.log('===>patronymic', patronymic);
-			console.log('===>email', email);
-			console.log('===>password', password);
-		} catch (error) {
-			console.log(error);
+	const onSubmitForm = async ({name, surname, patronymic, email, password, entity}) => {
+		const candidate = users.find(user => user.email === email);
+
+		if (candidate) {
+			setIsAuth(false);
+			setError(true);
+		} else {
+			const userLen = users.length;
+
+			const user = {
+				id: `${userLen + 1}u`,
+				name,
+				surname,
+				patronymic,
+				email,
+				password,
+				entity
+			};
+
+			if (!entity) {
+				user.cars = [];
+			}
+
+			users.push(user);
+			localStorage.setItem("users", JSON.stringify(users));
+			// dispatch();
+
+			setIsAuth(true);
+			setError(false);
 		}
 	};
 
 	return (
-		<div className="sing-in">
-			<div className="container">
-				<Card sx={{minWidth: 275, maxWidth: 500, margin: "50px auto", padding: '10px'}}>
-					<h2 className="sing-in-title">Зарегистрируйтесь, чтобы продолжить</h2>
-					<Formik
-						initialValues={{
-							name: "",
-							surname: "",
-							patronymic: "",
-							email: "",
-							password: "",
-						}}
-						validateOnBlur
-						onSubmit={(values) => onSubmitForm(values)}
-						validationSchema={validationSchema}
-					>
-						{({
-							  values,
-							  errors,
-							  touched,
-							  handleChange,
-							  handleBlur,
-							  isValid,
-							  handleSubmit,
-							  dirty,
-						  }) => (
-							<form className="form">
-								<TextField
-									id="outlined-number"
-									label="Имя"
-									type="text"
-									name="name"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.name}
-									InputLabelProps={{
-										shrink: true,
+		<>
+			{isAuth
+				? (
+					<Redirect to="/"/>
+				)
+				: (
+					<div className="sing-in">
+						<div className="container">
+							<Card sx={{minWidth: 275, maxWidth: 500, margin: "50px auto", padding: '10px'}}>
+								<h2 className="sing-in-title">Зарегистрируйтесь, чтобы продолжить</h2>
+								<Formik
+									initialValues={{
+										name: "",
+										surname: "",
+										patronymic: "",
+										email: "",
+										password: "",
+										entity: false
 									}}
-								/>
-								{touched.name && errors.name && (
-									<span className="form-error">{errors.name}</span>
+									validateOnBlur
+									onSubmit={(values) => onSubmitForm(values)}
+									validationSchema={validationSchema}
+								>
+									{({
+										  values,
+										  errors,
+										  touched,
+										  handleChange,
+										  handleBlur,
+										  isValid,
+										  handleSubmit,
+										  dirty,
+									  }) => (
+										<form className="form">
+											<TextField
+												id="outlined-number"
+												label="Имя"
+												type="text"
+												name="name"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.name}
+												InputLabelProps={{
+													shrink: true,
+												}}
+											/>
+											{touched.name && errors.name && (
+												<span className="form-error">{errors.name}</span>
+											)}
+											<TextField
+												id="outlined-number"
+												label="Фамилия"
+												type="text"
+												name="surname"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.surname}
+												InputLabelProps={{
+													shrink: true,
+												}}
+											/>
+											{touched.surname && errors.surname && (
+												<span className="form-error">{errors.surname}</span>
+											)}
+											<TextField
+												id="outlined-number"
+												label="Отчество"
+												type="text"
+												name="patronymic"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.patronymic}
+												InputLabelProps={{
+													shrink: true,
+												}}
+											/>
+											{touched.patronymic && errors.patronymic && (
+												<span className="form-error">{errors.patronymic}</span>
+											)}
+											<TextField
+												id="outlined-number"
+												label="Email"
+												type="email"
+												name="email"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.email}
+												InputLabelProps={{
+													shrink: true,
+												}}
+											/>
+											{touched.email && errors.email && (
+												<span className="form-error">{errors.email}</span>
+											)}
+											<TextField
+												id="outlined-number"
+												label="Пароль"
+												type="password"
+												name="password"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.password}
+												InputLabelProps={{
+													shrink: true,
+												}}
+											/>
+											{touched.password && errors.password && (
+												<span className="form-error">{errors.password}</span>
+											)}
+											<label htmlFor="entity">
+												<Checkbox id="entity" name="entity" onChange={handleChange}/>
+												Юридическое лицо
+											</label>
+											<Button
+												className="form-button"
+												disabled={!isValid && !dirty}
+												onClick={handleSubmit}
+												type="submit"
+												variant="contained">
+												Зарегистрироваться
+											</Button>
+											<Link to="/login">
+												<p className="form-link">
+													Есть аккаунт? <span>Войдите</span>
+												</p>
+											</Link>
+										</form>
+									)}
+								</Formik>
+								{error && (
+									<div style={{textAlign: "center", color: "red"}}>
+										Данный пользователь уже существует. Попробуйте снова.
+									</div>
 								)}
-								<TextField
-									id="outlined-number"
-									label="Фамилия"
-									type="text"
-									name="surname"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.surname}
-									InputLabelProps={{
-										shrink: true,
-									}}
-								/>
-								{touched.surname && errors.surname && (
-									<span className="form-error">{errors.surname}</span>
-								)}
-								<TextField
-									id="outlined-number"
-									label="Отчество"
-									type="text"
-									name="patronymic"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.patronymic}
-									InputLabelProps={{
-										shrink: true,
-									}}
-								/>
-								{touched.patronymic && errors.patronymic && (
-									<span className="form-error">{errors.patronymic}</span>
-								)}
-								<TextField
-									id="outlined-number"
-									label="Email"
-									type="email"
-									name="email"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.email}
-									InputLabelProps={{
-										shrink: true,
-									}}
-								/>
-								{touched.email && errors.email && (
-									<span className="form-error">{errors.email}</span>
-								)}
-								<TextField
-									id="outlined-number"
-									label="Пароль"
-									type="password"
-									name="password"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.password}
-									InputLabelProps={{
-										shrink: true,
-									}}
-								/>
-								{touched.password && errors.password && (
-									<span className="form-error">{errors.password}</span>
-								)}
-								<Button
-									className="form-button"
-									disabled={!isValid && !dirty}
-									onClick={handleSubmit}
-									type="submit"
-									variant="contained">
-									Зарегистрироваться
-								</Button>
-								<Link to="/login">
-									<p className="form-link">
-										Есть аккаунт? <span>Войдите</span>
-									</p>
-								</Link>
-							</form>
-						)}
-					</Formik>
-				</Card>
-			</div>
-		</div>
+							</Card>
+						</div>
+					</div>
+				)
+			}
+		</>
 	);
 };
 

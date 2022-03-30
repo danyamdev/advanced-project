@@ -1,4 +1,13 @@
 .sing-in {
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+    display: inline;
+    border-radius: 0;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
   &-title {
     padding-bottom: 10px;
     text-align: center;

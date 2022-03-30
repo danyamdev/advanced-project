@@ -4,7 +4,7 @@ export { default as SingleCarPark } from "./SingleCarPark/SingleCarPark";
 export { default as Point } from "./Point/Point";
 export { default as SpareParts } from "./SpareParts/SpareParts";
 export { default as MainPage } from "./MainPage/MainPage";
-export { default as ItemPage } from "./ItemPage/ItemPage";
+export { default as PointPage } from "./PointPage/PointPage";
 export { default as LogIn } from "./LogIn/LogIn";
 export { default as SingIn } from "./SingIn/SingIn";
 export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";

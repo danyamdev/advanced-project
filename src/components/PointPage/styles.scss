@@ -1,4 +1,4 @@
-.item-page {
+.point-page {
   .MuiBox-root {
     margin: auto;
   }
@@ -6,5 +6,13 @@
   .MuiTabs-flexContainer {
     display: flex;
     justify-content: space-around;
+  }
+
+  &-title {
+    text-align: center;
+  }
+
+  &-block-info {
+    text-align: center;
   }
 }

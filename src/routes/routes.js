@@ -1,6 +1,6 @@
 import {
 	MainPage,
-	ItemPage,
+	PointPage,
 	LogIn,
 	SingIn,
 	NotFound
@@ -15,7 +15,7 @@ const routes = [
 	},
 	{
 		path: '/point/:id',
-		component: ItemPage,
+		component: PointPage,
 		exact: true,
 		withAuth: false,
 	},

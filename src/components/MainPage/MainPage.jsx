@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
-import { Point } from "../index";
+import {Point} from "../index";
 
 import "./styles.scss";
 
 const MainPage = () => {
+	const [stations, setStations] = useState([]);
+
+	useEffect(() => {
+		const dataStations = JSON.parse(localStorage.getItem("stations"));
+
+		setStations(dataStations);
+	}, []);
+
 	return (
 		<div className="main-page">
 			<div className="container">
@@ -17,7 +25,7 @@ const MainPage = () => {
 							Пункты технического осмотра в Ростове-на-Дону
 						</h3>
 						<div className="main-page-block-points-list">
-							{[1, 2, 3, 4, 5].map(item => <Point/>)}
+							{stations?.map(station => <Point key={station.id} {...station}/>)}
 						</div>
 					</div>
 				</div>
