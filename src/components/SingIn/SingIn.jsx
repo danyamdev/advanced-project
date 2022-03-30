@@ -8,8 +8,6 @@ import { Button, TextField } from "@mui/material";
 import "./styles.scss";
 
 const SingIn = () => {
-	const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-
 	const validationSchema = yup.object().shape({
 		name: yup
 			.string()
@@ -22,12 +20,6 @@ const SingIn = () => {
 		patronymic: yup
 			.string()
 			.min(2, "Количество символов > 2.")
-			.required("Обязательное поле."),
-		phone: yup
-			.string()
-			.matches(phoneRegExp, 'Phone number is not valid')
-			.min(10, "Количество символов - 10")
-			.max(10, "Количество символов - 10")
 			.required("Обязательное поле."),
 		email: yup
 			.string()
@@ -62,7 +54,6 @@ const SingIn = () => {
 							name: "",
 							surname: "",
 							patronymic: "",
-							phone: "",
 							email: "",
 							password: "",
 						}}
@@ -125,22 +116,6 @@ const SingIn = () => {
 								/>
 								{touched.patronymic && errors.patronymic && (
 									<span className="form-error">{errors.patronymic}</span>
-								)}
-								<TextField
-									id="outlined-number"
-									label="Телефон"
-									type="text"
-									name="phone"
-									placeholder="Номер начинается с 9"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.phone}
-									InputLabelProps={{
-										shrink: true,
-									}}
-								/>
-								{touched.phone && errors.phone && (
-									<span className="form-error">{errors.phone}</span>
 								)}
 								<TextField
 									id="outlined-number"

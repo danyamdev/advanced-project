@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { Header, ProtectedRoute } from "./components";
+import gettingDataFromLS from "./helpers/gettingDataFromLS";
 import routes from "./routes/routes";
+import users from "./mocks/users";
+import stations from "./mocks/stations";
 
 import "./default.scss";
 
 const App = () => {
+
+	useEffect(() => {
+		gettingDataFromLS(users, "users");
+		gettingDataFromLS(stations, "stations");
+	}, [])
+
 	return (
 		<>
 			<Header/>
