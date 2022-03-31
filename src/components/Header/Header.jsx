@@ -25,16 +25,19 @@ const Header = () => {
 						</div>
 					</Link>
 					<Link to="/" className="header-link">записаться на прием</Link>
-					<Link to={`${idUser ? "/" : "/login"}`}>
-						{idUser
-							? (
-								<Button variant="contained" onClick={logout}>Выйти</Button>
-							)
-							: (
-								<Button variant="contained">Войти</Button>
-							)
-						}
-					</Link>
+					<div>
+						{idUser && (
+							<Link to={`/profile/${idUser}`}>
+								<Button variant="contained" sx={{marginRight: 5}}>Профиль</Button>
+							</Link>
+						)}
+						<Link to={`${idUser ? "/" : "/login"}`}>
+							{idUser
+								? <Button variant="contained" onClick={logout}>Выйти</Button>
+								: <Button variant="contained">Войти</Button>
+							}
+						</Link>
+					</div>
 				</div>
 			</div>
 		</header>

@@ -3,6 +3,7 @@ import {
 	PointPage,
 	LogIn,
 	SingIn,
+	Profile,
 	NotFound
 } from "../components";
 
@@ -30,6 +31,12 @@ const routes = [
 		component: SingIn,
 		exact: true,
 		withAuth: false,
+	},
+	{
+		path: "/profile/:id",
+		component: Profile,
+		exact: true,
+		withAuth: true,
 	},
 	{
 		path: "/*",

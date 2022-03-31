@@ -17,6 +17,9 @@ const App = () => {
 	const dispatch = useDispatch();
 	
 	const idUser = localStorage.getItem("ID_USER");
+	
+	gettingDataFromLS(users, "users", dispatch, addAllUsersAction);
+	gettingDataFromLS(stations, "stations", dispatch, addAllStationsAction);
 
 	if (idUser) {
 		const users = JSON.parse(localStorage.getItem("users"));
@@ -24,9 +27,6 @@ const App = () => {
 
 		dispatch(authUserAction(user));
 	}
-	
-	gettingDataFromLS(users, "users", dispatch, addAllUsersAction);
-	gettingDataFromLS(stations, "stations", dispatch, addAllStationsAction);
 
 	return (
 		<>

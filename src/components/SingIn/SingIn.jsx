@@ -57,7 +57,6 @@ const SingIn = () => {
 				surname,
 				patronymic,
 				email,
-				password,
 				entity
 			};
 
@@ -65,7 +64,10 @@ const SingIn = () => {
 				user.cars = [];
 			}
 
-			dispatch(addUserAction(user));
+			dispatch(addUserAction({
+				...user,
+				password
+			}));
 			dispatch(authUserAction(user));
 
 			setIsAuth(true);
