@@ -9,7 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 import {usersSelector} from "../../store/users/selectors";
 import {addUserAction} from "../../store/users/action";
-import {authUserAction} from "../../store/auth/action";
+import {authUserAction} from "../../store/user/action";
 
 import "./styles.scss";
 

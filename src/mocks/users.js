@@ -12,12 +12,14 @@ const users = [
 				brand: "Audi",
 				name: "A5",
 				history: [],
+				result: null,
 			},
 			{
 				id: 2,
 				brand: "Volkswagen",
 				name: "POLO",
-				history: []
+				history: [],
+				result: null,
 			}
 		],
 		entity: false

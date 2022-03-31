@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
+import ModalAddCar from "../ModalAddCar/ModalAddCar";
+
 import "./styles.scss";
 
 const ProfileIndividual = ({id, name, surname, patronymic, email, cars}) => {
+	const [open, setOpen] = useState(false);
+	const handleChange = () => setOpen(!open);
 
 	return (
 		<div className="profile-individual">
@@ -32,7 +36,7 @@ const ProfileIndividual = ({id, name, surname, patronymic, email, cars}) => {
 								<Typography sx={{fontSize: 20, marginBottom: 0, marginRight: 5}} color="success.main" gutterBottom>
 									Список ваших машин
 								</Typography>
-								<CardActions>
+								<CardActions onClick={handleChange}>
 									<Button variant="contained" size="small">Добавить машину</Button>
 								</CardActions>
 							</Typography>
@@ -65,6 +69,7 @@ const ProfileIndividual = ({id, name, surname, patronymic, email, cars}) => {
 						</CardContent>
 					</Card>
 				</div>
+				<ModalAddCar open={open} handleChange={handleChange}/>
 			</div>
 		</div>
 	)

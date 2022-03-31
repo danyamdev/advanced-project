@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 
 import ProfileEntity from "../ProfileEntity/ProfileEntity";
 import ProfileIndividual from "../ProfileIndividual/ProfileIndividual";
-import {authUserSelector} from "../../store/auth/selectors";
+import {authUserSelector} from "../../store/user/selectors";
 
 import "./styles.scss";
 
