@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, Redirect} from "react-router-dom";
 import {Formik} from "formik";
 import * as yup from "yup";
@@ -6,13 +7,18 @@ import Card from "@mui/material/Card";
 import {Button, TextField} from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
 
+import {usersSelector} from "../../store/users/selectors";
+import {addUserAction} from "../../store/users/action";
+import {authUserAction} from "../../store/auth/action";
+
 import "./styles.scss";
 
 const SingIn = () => {
+	const users = useSelector(usersSelector);
+	const dispatch = useDispatch();
+
 	const [isAuth, setIsAuth] = useState(false);
 	const [error, setError] = useState(false);
-
-	const users = JSON.parse(localStorage.getItem("users"));
 
 	const validationSchema = yup.object().shape({
 		name: yup
@@ -45,10 +51,8 @@ const SingIn = () => {
 			setIsAuth(false);
 			setError(true);
 		} else {
-			const userLen = users.length;
-
 			const user = {
-				id: `${userLen + 1}u`,
+				id: Date.now(),
 				name,
 				surname,
 				patronymic,
@@ -61,9 +65,8 @@ const SingIn = () => {
 				user.cars = [];
 			}
 
-			users.push(user);
-			localStorage.setItem("users", JSON.stringify(users));
-			// dispatch();
+			dispatch(addUserAction(user));
+			dispatch(authUserAction(user));
 
 			setIsAuth(true);
 			setError(false);
