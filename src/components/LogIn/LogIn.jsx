@@ -1,17 +1,22 @@
 import React, {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, Redirect} from "react-router-dom";
 import {Formik} from "formik";
 import * as yup from "yup";
 import Card from "@mui/material/Card";
 import {Button, TextField} from "@mui/material";
 
+import {usersSelector} from "../../store/users/selectors";
+import {authUserAction} from "../../store/auth/action";
+
 import "./styles.scss";
 
 const LogIn = () => {
+	const users = useSelector(usersSelector);
+	const dispatch = useDispatch();
+
 	const [isAuth, setIsAuth] = useState(false);
 	const [error, setError] = useState(false);
-
-	const users = JSON.parse(localStorage.getItem("users"));
 
 	const validationSchema = yup.object().shape({
 		email: yup
@@ -29,10 +34,10 @@ const LogIn = () => {
 		const user = users.find(user => user.email === email && user.password === password);
 
 		if (user) {
+			dispatch(authUserAction(user));
+
 			setIsAuth(true);
 			setError(false);
-
-			// dispatch()
 		} else {
 			setIsAuth(false);
 			setError(true);

@@ -1,6 +1,6 @@
 const users = [
 	{
-		id: "1u",
+		id: 1,
 		name: "Даниэль",
 		surname: "Мамин",
 		patronymic: "Ильдарович",
@@ -10,7 +10,7 @@ const users = [
 		entity: false
 	},
 	{
-		id: "2u",
+		id: 2,
 		name: "Артем",
 		surname: "Есупов",
 		patronymic: "Алексеевич",
@@ -19,7 +19,7 @@ const users = [
 		entity: true
 	},
 	{
-		id: "3u",
+		id: 3,
 		name: "Михаил",
 		surname: "Орлов",
 		patronymic: "Алексеевич",
@@ -28,7 +28,7 @@ const users = [
 		entity: true
 	},
 	{
-		id: "4u",
+		id: 4,
 		name: "Дмитрий",
 		surname: "Вернов",
 		patronymic: "Артемович",

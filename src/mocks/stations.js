@@ -1,6 +1,6 @@
 const stations = [
 	{
-		id: "1s",
+		id: 1,
 		name: "ООО «Эксперт»",
 		city: "г Ростов-на-Дону",
 		street: "пер Технологический",
@@ -213,10 +213,10 @@ const stations = [
 			},
 		],
 		history: [],
-		idUser: "2u"
+		idUser: 2
 	},
 	{
-		id: "2s",
+		id: 2,
 		name: "ИП Орлов М.А.",
 		city: "г Ростов-на-Дону",
 		street: "пер Машиностроительный",
@@ -429,7 +429,7 @@ const stations = [
 			},
 		],
 		history: [],
-		idUser: "3u"
+		idUser: 3
 	},
 ];
 
