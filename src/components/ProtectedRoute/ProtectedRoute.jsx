@@ -1,11 +1,15 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import {useSelector} from "react-redux";
+
+import {getIdSelector} from "../../store/auth/selectors";
 
 const ProtectedRoute = ({
-  idUser,
   component: Component,
   ...rest
 }) => {
+  const idUser = useSelector(getIdSelector);
+
   return (
     <Route
       {...rest}

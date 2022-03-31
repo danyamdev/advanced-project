@@ -1,7 +1,7 @@
 import {actionTypes} from "./action";
 
 const initialState = {
-	stations: []
+	stations: [],
 };
 
 const stationsReducer = (state = initialState, action) => {
@@ -16,6 +16,14 @@ const stationsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				stations: [...state.stations, action.payload]
+			}
+
+		case actionTypes.GET_STATION_BY_USER_ID:
+			const station = state.stations.filter(item => item.idUser === action.payload);
+
+			return {
+				...state,
+				station
 			}
 
 		default:

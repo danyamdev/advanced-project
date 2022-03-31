@@ -12,21 +12,18 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.AUTH:
-			const user = action.payload;
-
-			delete user.password;
-
-			localStorage.setItem("ID_USER", user.id);
+			localStorage.setItem("ID_USER", action.payload.id);
 
 			return {
 				...state,
-				...user
+				...action.payload
 			}
 
 		case actionTypes.LOGOUT:
 			localStorage.removeItem("ID_USER");
 
 			return {
+				...state,
 				id: null,
 				name: "",
 				surname: "",

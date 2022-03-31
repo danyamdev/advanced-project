@@ -6,7 +6,20 @@ const users = [
 		patronymic: "Ильдарович",
 		email: "dm@mail.com",
 		password: "12345678",
-		cars: [],
+		cars: [
+			{
+				id: 1,
+				brand: "Audi",
+				name: "A5",
+				history: [],
+			},
+			{
+				id: 2,
+				brand: "Volkswagen",
+				name: "POLO",
+				history: []
+			}
+		],
 		entity: false
 	},
 	{
