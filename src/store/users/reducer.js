@@ -22,6 +22,14 @@ const usersReducer = (state = initialState, action) => {
 				users: [...state.users, action.payload]
 			}
 
+		case actionTypes.UPDATE_USERS:
+			localStorage.setItem("users", JSON.stringify(action.payload));
+
+			return {
+				...state,
+				users: action.payload
+			}
+
 		default:
 			return state
 	}

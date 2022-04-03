@@ -26,6 +26,14 @@ const stationsReducer = (state = initialState, action) => {
 				station
 			}
 
+		case actionTypes.UPDATE_STATIONS:
+			localStorage.setItem("stations", JSON.stringify(action.payload));
+
+			return {
+				...state,
+				station: action.payload
+			}
+
 		default:
 			return state;
 	}

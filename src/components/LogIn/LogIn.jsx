@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import {Button, TextField} from "@mui/material";
 
 import {usersSelector} from "../../store/users/selectors";
-import {authUserAction} from "../../store/auth/action";
+import {authUserAction} from "../../store/user/action";
 
 import "./styles.scss";
 
@@ -32,6 +32,7 @@ const LogIn = () => {
 
 	const onSubmitForm = ({email, password}) => {
 		const user = users.find(user => user.email === email && user.password === password);
+
 
 		if (user) {
 			dispatch(authUserAction(user));

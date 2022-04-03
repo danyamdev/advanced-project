@@ -9,7 +9,7 @@ import users from "./mocks/users";
 import stations from "./mocks/stations";
 import {addAllUsersAction} from "./store/users/action";
 import {addAllStationsAction} from "./store/stations/action";
-import {authUserAction} from "./store/auth/action";
+import {authUserAction} from "./store/user/action";
 
 import "./default.scss";
 

@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 
-import {getIdSelector} from "../../store/auth/selectors";
-import {logoutAction} from "../../store/auth/action";
+import {getIdSelector} from "../../store/user/selectors";
+import {logoutAction} from "../../store/user/action";
 import logo from "../../assets/images/logo.png";
 
 import "./styles.scss";
