@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import {Point} from "../index";
+import ModalAddCStation from "../ModalAddStation/ModalAddStation";
 import {getStationsByUserIdSelector} from "../../store/stations/selectors";
 import {getStationByUserIdAction} from "../../store/stations/action";
 
@@ -15,6 +16,9 @@ import "./styles.scss";
 const ProfileEntity = ({id, name, surname, patronymic, email}) => {
 	const stations = useSelector(getStationsByUserIdSelector);
 	const dispatch = useDispatch();
+
+	const [open, setOpen] = useState(false);
+	const handleChange = () => setOpen(!open);
 
 	useEffect(() => {
 		dispatch(getStationByUserIdAction(id));
@@ -43,7 +47,7 @@ const ProfileEntity = ({id, name, surname, patronymic, email}) => {
 								<Typography sx={{fontSize: 20, marginBottom: 0, marginRight: 5}} color="success.main" gutterBottom>
 									Список ваших станций
 								</Typography>
-								<CardActions>
+								<CardActions onClick={handleChange}>
 									<Button variant="contained" size="small">Добавить станцию</Button>
 								</CardActions>
 							</Typography>
@@ -62,6 +66,7 @@ const ProfileEntity = ({id, name, surname, patronymic, email}) => {
 						</CardContent>
 					</Card>
 				</div>
+				<ModalAddCStation open={open} handleChange={handleChange}/>
 			</div>
 		</div>
 	)
