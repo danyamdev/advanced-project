@@ -14,9 +14,10 @@ import Box from "@mui/material/Box";
 import {stationsSelector} from "../../store/stations/selectors";
 import {updateStationsAction} from "../../store/stations/action";
 
-const SingleCarPark = ({id, name, cars, user}) => {
+const SingleCarPark = ({id, name, cars, user, station}) => {
 	const [isShowFormCar, setIsShowFormCar] = useState(false);
-
+	console.log('===>user', user);
+	console.log('===>station', station);
 	return (
 		<>
 			<Accordion sx={{marginBottom: 3}}>
@@ -26,7 +27,7 @@ const SingleCarPark = ({id, name, cars, user}) => {
 				>
 					<div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%"}}>
 						<Typography>{name}</Typography>
-						{user?.id && user.entity && (
+						{user?.id === station?.idUser && user?.id && user.entity && (
 							<Button
 								variant="contained"
 								onClick={() => setIsShowFormCar(true)}>

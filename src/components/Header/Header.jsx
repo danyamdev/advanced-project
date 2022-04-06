@@ -3,15 +3,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 
-import {getIdSelector} from "../../store/user/selectors";
+import {authUserSelector} from "../../store/user/selectors";
 import {logoutAction} from "../../store/user/action";
 import logo from "../../assets/images/logo.png";
 
 import "./styles.scss";
 
 const Header = () => {
-	const idUser = useSelector(getIdSelector);
-	const dispatch = useDispatch()
+	const user = useSelector(authUserSelector);
+	const dispatch = useDispatch();
 
 	const logout = () => dispatch(logoutAction());
 
@@ -24,15 +24,17 @@ const Header = () => {
 							<img src={logo} alt="Logo"/>
 						</div>
 					</Link>
-					<Link to="/" className="header-link">записаться на прием</Link>
+					{(!user.entity || !user) && (
+						<Link to={`${user.id ? "/entry" : "/login"}`} className="header-link">записаться на прием</Link>
+					)}
 					<div>
-						{idUser && (
-							<Link to={`/profile/${idUser}`}>
+						{user.id && (
+							<Link to={`/profile/${user.id}`}>
 								<Button variant="contained" sx={{marginRight: 5}}>Профиль</Button>
 							</Link>
 						)}
-						<Link to={`${idUser ? "/" : "/login"}`}>
-							{idUser
+						<Link to={`${user.id ? "/" : "/login"}`}>
+							{user.id
 								? <Button variant="contained" onClick={logout}>Выйти</Button>
 								: <Button variant="contained">Войти</Button>
 							}

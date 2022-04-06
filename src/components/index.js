@@ -6,6 +6,7 @@ export { default as Profile } from "./Profile/Profile";
 export { default as SpareParts } from "./SpareParts/SpareParts";
 export { default as MainPage } from "./MainPage/MainPage";
 export { default as PointPage } from "./PointPage/PointPage";
+export { default as Entry } from "./Entry/Entry";
 export { default as LogIn } from "./LogIn/LogIn";
 export { default as SingIn } from "./SingIn/SingIn";
 export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";

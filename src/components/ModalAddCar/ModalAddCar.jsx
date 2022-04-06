@@ -50,11 +50,14 @@ const ModalAddCar = ({open, handleChange}) => {
 			result: null,
 		};
 		
-		user.cars.push(car);
+		user.cars = [...user.cars, car];
 
 		const updateUsers = users.map(item => {
 			if (item.id === user.id) {
-				item.cars.push(car);
+				return {
+					...item,
+					cars: [...item.cars, car]
+				}
 			}
 			return item;
 		})
