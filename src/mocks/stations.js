@@ -8,27 +8,27 @@ const stations = [
 		phone: "+7 (918) 581-36-69",
 		carParks: [
 			{
-				id: "1cp",
+				id: 11,
 				name: "Volkswagen",
 				cars: [
 					{
-						id: "1c",
+						id: 111,
 						name: "POLO",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1111,
 								name: "Диск тормозной, задний",
 								price: 1000,
 								count: 0,
 							},
 							{
-								id: "2sp",
+								id: 11111,
 								name: "Диск тормозной, передний",
 								price: 1000,
 								count: 6,
 							},
 							{
-								id: "3sp",
+								id: 111111,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
 								count: 0,
@@ -36,17 +36,17 @@ const stations = [
 						]
 					},
 					{
-						id: "2c",
+						id: 112,
 						name: "Jetta",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1122,
 								name: "Диск тормозной, задний",
 								price: 2000,
 								count: 5,
 							},
 							{
-								id: "2sp",
+								id: 11222,
 								name: "Диск тормозной, передний",
 								price: 2000,
 								count: 6,
@@ -54,17 +54,17 @@ const stations = [
 						]
 					},
 					{
-						id: "3c",
+						id: 113,
 						name: "Scirocco",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1133,
 								name: "Диск тормозной, передний",
 								price: 2200,
 								count: 6,
 							},
 							{
-								id: "2sp",
+								id: 11333,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
 								count: 3,
@@ -74,21 +74,21 @@ const stations = [
 				]
 			},
 			{
-				id: "2cp",
+				id: 12,
 				name: "Mazda",
 				cars: [
 					{
-						id: "1c",
+						id: 121,
 						name: "CX-5",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1211,
 								name: "Фильтр воздушный",
 								price: 3000,
 								count: 5,
 							},
 							{
-								id: "2sp",
+								id: 12111,
 								name: "Пробка сливная поддона двигателя",
 								price: 3000,
 								count: 6,
@@ -96,23 +96,23 @@ const stations = [
 						]
 					},
 					{
-						id: "2c",
+						id: 122,
 						name: "RX-7",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1222,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
 								count: 3,
 							},
 							{
-								id: "2sp",
+								id: 12222,
 								name: "Свеча зажигания, 5 шт.",
 								price: 7000,
 								count: 5,
 							},
 							{
-								id: "3sp",
+								id: 122222,
 								name: "Свечи зажигания, комплект",
 								price: 10000,
 								count: 5,
@@ -122,27 +122,27 @@ const stations = [
 				]
 			},
 			{
-				id: "3cp",
+				id: 13,
 				name: "BMW",
 				cars: [
 					{
-						id: "1c",
+						id: 131,
 						name: "i8",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1311,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 2500,
 								count: 3,
 							},
 							{
-								id: "2sp",
+								id: 13111,
 								name: "Датчик износа тормозных колодок, задний",
 								price: 10000,
 								count: 5,
 							},
 							{
-								id: "3sp",
+								id: 131111,
 								name: "Датчик износа тормозных колодок, передний",
 								price: 10000,
 								count: 5,
@@ -150,69 +150,28 @@ const stations = [
 						]
 					},
 					{
-						id: "2c",
+						id: 132,
 						name: "X5",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 1322,
 								name: "Фильтр воздушный",
 								price: 3000,
 								count: 5,
 							},
 							{
-								id: "2sp",
+								id: 13222,
 								name: "Жидкость тормозная 1л",
 								price: 3000,
 								count: 6,
 							},
-						]
-					},
-					{
-						id: "2c",
-						name: "X6",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Фильтр воздушный",
-								price: 3000,
-								count: 5,
-							},
-							{
-								id: "2sp",
-								name: "Жидкость тормозная 1л",
-								price: 3000,
-								count: 6,
-							},
-							{
-								id: "3sp",
-								name: "Щётки стеклоочистителя, комплект, передние",
-								price: 1500,
-								count: 3,
-							},
-							{
-								id: "4sp",
-								name: "Датчик износа тормозных колодок, задний",
-								price: 5000,
-								count: 5,
-							},
-							{
-								id: "5sp",
-								name: "Датчик износа тормозных колодок, передний",
-								price: 5000,
-								count: 5,
-							},
-							{
-								id: "6sp",
-								name: "Диск тормозной, задний",
-								price: 3000,
-								count: 5,
-							}
 						]
 					},
 				]
 			},
 		],
 		history: [],
+		applications: [],
 		idUser: 2
 	},
 	{
@@ -224,27 +183,27 @@ const stations = [
 		phone: "+7 (911) 581-36-69",
 		carParks: [
 			{
-				id: "1cp",
+				id: 21,
 				name: "Volkswagen",
 				cars: [
 					{
-						id: "1c",
+						id: 211,
 						name: "POLO",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 2111,
 								name: "Диск тормозной, задний",
 								price: 1000,
 								count: 5,
 							},
 							{
-								id: "2sp",
+								id: 21111,
 								name: "Диск тормозной, передний",
 								price: 1000,
 								count: 6,
 							},
 							{
-								id: "3sp",
+								id: 211111,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
 								count: 3,
@@ -252,17 +211,17 @@ const stations = [
 						]
 					},
 					{
-						id: "2c",
+						id: 212,
 						name: "Jetta",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 2122,
 								name: "Диск тормозной, задний",
 								price: 2000,
 								count: 5,
 							},
 							{
-								id: "2sp",
+								id: 21222,
 								name: "Диск тормозной, передний",
 								price: 2000,
 								count: 6,
@@ -270,17 +229,17 @@ const stations = [
 						]
 					},
 					{
-						id: "3c",
+						id: 213,
 						name: "Scirocco",
 						spareParts: [
 							{
-								id: "1sp",
+								id: 2133,
 								name: "Диск тормозной, передний",
 								price: 2200,
 								count: 6,
 							},
 							{
-								id: "2sp",
+								id: 21333,
 								name: "Щётки стеклоочистителя, комплект, передние",
 								price: 500,
 								count: 3,
@@ -288,147 +247,10 @@ const stations = [
 						]
 					}
 				]
-			},
-			{
-				id: "2cp",
-				name: "Volvo",
-				cars: [
-					{
-						id: "1c",
-						name: "C70 кабрио II",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Фильтр воздушный",
-								price: 3000,
-								count: 0,
-							},
-							{
-								id: "2sp",
-								name: "Пробка сливная поддона двигателя",
-								price: 3000,
-								count: 6,
-							},
-						]
-					},
-					{
-						id: "2c",
-						name: "V60 универсал",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Щётки стеклоочистителя, комплект, передние",
-								price: 500,
-								count: 3,
-							},
-							{
-								id: "2sp",
-								name: "Свеча зажигания, 5 шт.",
-								price: 7000,
-								count: 5,
-							},
-							{
-								id: "3sp",
-								name: "Свечи зажигания, комплект",
-								price: 10000,
-								count: 5,
-							},
-						]
-					},
-				]
-			},
-			{
-				id: "3cp",
-				name: "Acura",
-				cars: [
-					{
-						id: "1c",
-						name: "RDX II",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Щётки стеклоочистителя, комплект, передние",
-								price: 2500,
-								count: 3,
-							},
-							{
-								id: "2sp",
-								name: "Датчик износа тормозных колодок, задний",
-								price: 10000,
-								count: 5,
-							},
-							{
-								id: "3sp",
-								name: "Датчик износа тормозных колодок, передний",
-								price: 10000,
-								count: 5,
-							},
-						]
-					},
-					{
-						id: "2c",
-						name: "ZDX",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Фильтр воздушный",
-								price: 3000,
-								count: 5,
-							},
-							{
-								id: "2sp",
-								name: "Жидкость тормозная 1л",
-								price: 3000,
-								count: 6,
-							},
-						]
-					},
-					{
-						id: "2c",
-						name: "TLX",
-						spareParts: [
-							{
-								id: "1sp",
-								name: "Фильтр воздушный",
-								price: 3000,
-								count: 5,
-							},
-							{
-								id: "2sp",
-								name: "Жидкость тормозная 1л",
-								price: 3000,
-								count: 6,
-							},
-							{
-								id: "3sp",
-								name: "Щётки стеклоочистителя, комплект, передние",
-								price: 1500,
-								count: 3,
-							},
-							{
-								id: "4sp",
-								name: "Датчик износа тормозных колодок, задний",
-								price: 5000,
-								count: 5,
-							},
-							{
-								id: "5sp",
-								name: "Датчик износа тормозных колодок, передний",
-								price: 5000,
-								count: 5,
-							},
-							{
-								id: "6sp",
-								name: "Диск тормозной, задний",
-								price: 3000,
-								count: 5,
-							}
-						]
-					},
-				]
-			},
+			}
 		],
 		history: [],
+		applications: [],
 		idUser: 2
 	},
 ];

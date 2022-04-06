@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import * as yup from "yup";
 import {Formik} from "formik";
+import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -10,15 +11,15 @@ import Tab from '@mui/material/Tab';
 import {Button, TextField} from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import HistoryIcon from '@mui/icons-material/History';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import {TabPanel, SingleCarPark, SpareParts} from "../index";
+import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
 import {authUserSelector} from "../../store/user/selectors";
 
 import "./styles.scss";
-import Modal from "@mui/material/Modal";
-import {updateStationsAction} from "../../store/stations/action";
-
 
 const getListCars = items => items.map(item => item.cars?.map(car => ({
 	brand: item.name,
@@ -64,10 +65,12 @@ const PointPage = () => {
 											aria-label="icon label tabs example">
 											<Tab icon={<DirectionsCarIcon/>} label="Автопарк"/>
 											<Tab icon={<SettingsIcon/>} label="Запчасти"/>
+											<Tab icon={<HistoryIcon/>} label="История"/>
+											<Tab icon={<AssignmentIcon/>} label="Заявки"/>
 										</Tabs>
 									</Box>
 									<TabPanel value={value} index={0}>
-										{user?.id && user.entity && (
+										{user?.id === station?.idUser && user?.id && user.entity && (
 											<Button
 												sx={{margin: "10px 0"}}
 												variant="contained"
@@ -77,7 +80,7 @@ const PointPage = () => {
 										)}
 										{station?.carParks.length > 0
 											? (
-												station.carParks?.map(park => <SingleCarPark key={park.id} {...park} user={user}/>)
+												station.carParks?.map(park => <SingleCarPark key={park.id} station={station} {...park} user={user}/>)
 											)
 											: (
 												<div style={{marginTop: "30px", fontSize: "36px", textAlign: "center"}}>
@@ -89,7 +92,7 @@ const PointPage = () => {
 									<TabPanel value={value} index={1}>
 										{cars.length > 0
 											? (
-												cars?.map(car => <SpareParts key={car.id} {...car} user={user}/>)
+												cars?.map(car => <SpareParts key={car.id} {...car} station={station} user={user}/>)
 											)
 											: (
 												<div style={{marginTop: "30px", fontSize: "36px", textAlign: "center"}}>
@@ -97,6 +100,12 @@ const PointPage = () => {
 												</div>
 											)
 										}
+									</TabPanel>
+									<TabPanel value={value} index={2}>
+										История
+									</TabPanel>
+									<TabPanel value={value} index={3}>
+										Заявки
 									</TabPanel>
 								</Box>
 							</>

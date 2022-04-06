@@ -22,7 +22,7 @@ const ProfileEntity = ({id, name, surname, patronymic, email}) => {
 
 	useEffect(() => {
 		dispatch(getStationByUserIdAction(id));
-	}, [id]);
+	}, [id, open]);
 
 	return (
 		<div className="profile-entity">

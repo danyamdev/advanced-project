@@ -24,7 +24,7 @@ import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
 import {useParams} from "react-router-dom";
 
-const SpareParts = ({brand, name, spareParts, user}) => {
+const SpareParts = ({brand, name, spareParts, user, station}) => {
 	const [isShowFormSparePart, setIsShowFormSparePart] = useState(false);
 
 	return (
@@ -36,7 +36,7 @@ const SpareParts = ({brand, name, spareParts, user}) => {
 				>
 					<div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%"}}>
 						<Typography>{brand} {name}</Typography>
-						{user?.id && user.entity && (
+						{user?.id === station?.idUser && user?.id && user.entity && (
 							<Button
 								variant="contained"
 								onClick={() => setIsShowFormSparePart(true)}>
