@@ -16,8 +16,7 @@ import {updateStationsAction} from "../../store/stations/action";
 
 const SingleCarPark = ({id, name, cars, user, station}) => {
 	const [isShowFormCar, setIsShowFormCar] = useState(false);
-	console.log('===>user', user);
-	console.log('===>station', station);
+
 	return (
 		<>
 			<Accordion sx={{marginBottom: 3}}>
@@ -55,7 +54,6 @@ const SingleCarPark = ({id, name, cars, user, station}) => {
 							</div>
 						)
 					}
-
 				</AccordionDetails>
 			</Accordion>
 			<ModalFormAddCar idCarPark={id}  brand={name} open={isShowFormCar} onClose={setIsShowFormCar}/>

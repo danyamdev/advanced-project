@@ -64,7 +64,8 @@ const ModalAddCStation = ({open, handleChange}) => {
 			phone,
 			carParks,
 			idUser,
-			history: []
+			history: [],
+			applications: []
 		};
 
 		stations.push(station);
