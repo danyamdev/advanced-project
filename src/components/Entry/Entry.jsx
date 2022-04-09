@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Formik} from "formik";
 import * as yup from "yup";
-import {Button, InputLabel, MenuItem, Select} from "@mui/material";
+import {Alert, Button, InputLabel, MenuItem, Select, Snackbar} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import InputMask from "react-input-mask";
 
@@ -21,6 +21,7 @@ const Entry = () => {
 	const [valueStationOption, setValueStationOption] = useState("");
 	const [valueCarOption, setValueCarOption] = useState("");
 	const [valueSparePart, setValueSparePart] = useState("");
+	const [isShowSnackbar, setIsShowSnackbar] = useState(false)
 
 	const handleChangeValueStationOption = (event) => {
 		const value = event.target.value;
@@ -90,8 +91,9 @@ const Entry = () => {
 		const updateStations = stations.map(el => el.id === station.id ? station : el);
 
 		dispatch(updateStationsAction(updateStations));
-	};
 
+		setIsShowSnackbar(true);
+	};
 
 	return (
 		<div className="entry">
@@ -194,6 +196,11 @@ const Entry = () => {
 						)}
 					</Formik>
 				</div>
+				<Snackbar open={isShowSnackbar} autoHideDuration={6000} onClose={() => setIsShowSnackbar(false)}>
+					<Alert onClose={() => setIsShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+						Спасибо! Заявка была отправлена!
+					</Alert>
+				</Snackbar>
 			</div>
 		</div>
 	)

@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
-import ModalAddCar from "../ModalAddCar/ModalAddCar";
+import {ModalAddCar} from "../index";
 
 import "./styles.scss";
 

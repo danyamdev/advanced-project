@@ -6,8 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import {Point} from "../index";
-import ModalAddCStation from "../ModalAddStation/ModalAddStation";
+import {Point, ModalAddStation} from "../index";
 import {getStationsByUserIdSelector} from "../../store/stations/selectors";
 import {getStationByUserIdAction} from "../../store/stations/action";
 
@@ -66,7 +65,7 @@ const ProfileEntity = ({id, name, surname, patronymic, email}) => {
 						</CardContent>
 					</Card>
 				</div>
-				<ModalAddCStation open={open} handleChange={handleChange}/>
+				<ModalAddStation open={open} handleChange={handleChange}/>
 			</div>
 		</div>
 	)

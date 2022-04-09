@@ -7,9 +7,9 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import {Button, TextField} from "@mui/material";
 
-import {updateUserAction} from "../../store/user/action";
-import {authUserSelector} from "../../store/user/selectors";
 import {usersSelector} from "../../store/users/selectors";
+import {authUserSelector} from "../../store/user/selectors";
+import {updateUserAction} from "../../store/user/action";
 import {updateUsersAction} from "../../store/users/action";
 
 const style = {

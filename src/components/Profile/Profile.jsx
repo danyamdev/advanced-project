@@ -2,8 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 
-import ProfileEntity from "../ProfileEntity/ProfileEntity";
-import ProfileIndividual from "../ProfileIndividual/ProfileIndividual";
+import {ProfileIndividual, ProfileEntity} from "../index";
 import {authUserSelector} from "../../store/user/selectors";
 
 import "./styles.scss";
