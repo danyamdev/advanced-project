@@ -31,7 +31,7 @@ const stationsReducer = (state = initialState, action) => {
 
 			return {
 				...state,
-				station: action.payload
+				stations: action.payload
 			}
 
 		default:

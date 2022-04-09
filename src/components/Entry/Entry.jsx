@@ -58,7 +58,8 @@ const Entry = () => {
 
 		const application = {
 			id: Date.now(),
-			phone
+			phone,
+			result: false
 		};
 		
 		station?.carParks.forEach(park => {
@@ -89,7 +90,6 @@ const Entry = () => {
 		const updateStations = stations.map(el => el.id === station.id ? station : el);
 
 		dispatch(updateStationsAction(updateStations));
-		
 	};
 
 

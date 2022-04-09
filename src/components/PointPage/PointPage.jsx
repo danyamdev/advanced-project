@@ -15,6 +15,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import Application from "../Application/Application";
+import History from "../History/History";
 import {TabPanel, SingleCarPark, SpareParts} from "../index";
 import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
@@ -104,9 +105,7 @@ const PointPage = () => {
 									</TabPanel>
 									<TabPanel style={{display: user.entity && station.idUser === user.id ? "" : "none"}} value={value} index={2}>
 										{station?.history.length > 0
-											? (
-												<h2>История</h2>
-											)
+											? <History station={station}/>
 											: (
 												<div style={{marginTop: "30px", fontSize: "36px", textAlign: "center"}}>
 													На станции пока нет истории...😔
