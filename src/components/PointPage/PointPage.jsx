@@ -14,6 +14,8 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import HistoryIcon from '@mui/icons-material/History';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
+import Application from "../Application/Application";
+import History from "../History/History";
 import {TabPanel, SingleCarPark, SpareParts} from "../index";
 import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
@@ -65,8 +67,8 @@ const PointPage = () => {
 											aria-label="icon label tabs example">
 											<Tab icon={<DirectionsCarIcon/>} label="Автопарк"/>
 											<Tab icon={<SettingsIcon/>} label="Запчасти"/>
-											<Tab icon={<HistoryIcon/>} label="История"/>
-											<Tab icon={<AssignmentIcon/>} label="Заявки"/>
+											<Tab style={{display: user.entity && station.idUser === user.id ? "" : "none"}} icon={<HistoryIcon/>} label="История"/>
+											<Tab style={{display: user.entity && station.idUser === user.id ? "" : "none"}} icon={<AssignmentIcon/>} label="Заявки"/>
 										</Tabs>
 									</Box>
 									<TabPanel value={value} index={0}>
@@ -101,11 +103,27 @@ const PointPage = () => {
 											)
 										}
 									</TabPanel>
-									<TabPanel value={value} index={2}>
-										История
+									<TabPanel style={{display: user.entity && station.idUser === user.id ? "" : "none"}} value={value} index={2}>
+										{station?.history.length > 0
+											? <History station={station}/>
+											: (
+												<div style={{marginTop: "30px", fontSize: "36px", textAlign: "center"}}>
+													На станции пока нет истории...😔
+												</div>
+											)
+										}
 									</TabPanel>
-									<TabPanel value={value} index={3}>
-										Заявки
+									<TabPanel style={{display: user.entity && station.idUser === user.id ? "" : "none"}} value={value} index={3}>
+										{station?.applications.length > 0
+											? (
+												station?.applications.map(el => <Application key={el.id} {...el} station={station} user={user}/>)
+											)
+											: (
+												<div style={{marginTop: "30px", fontSize: "36px", textAlign: "center"}}>
+													На станции пока нет заявок...😔
+												</div>
+											)
+										}
 									</TabPanel>
 								</Box>
 							</>
