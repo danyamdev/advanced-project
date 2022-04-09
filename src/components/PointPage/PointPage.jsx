@@ -14,9 +14,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import HistoryIcon from '@mui/icons-material/History';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-import Application from "../Application/Application";
-import History from "../History/History";
-import {TabPanel, SingleCarPark, SpareParts} from "../index";
+import {TabPanel, SingleCarPark, SpareParts, Application, History} from "../index";
 import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
 import {authUserSelector} from "../../store/user/selectors";

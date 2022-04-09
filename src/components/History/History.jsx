@@ -6,8 +6,6 @@ import {format, parseISO} from "date-fns";
 const History = ({station}) => {
 	const historyArr = station.history;
 
-	console.log('===>historyArr[0].', historyArr[0].history[0].date);
-	console.log('===>',historyArr[0].history[1].date );
 	return (
 		<>
 			{historyArr.map(({brand, name, phone, sparePart, history}, i) => (

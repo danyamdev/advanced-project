@@ -4,12 +4,12 @@ import {useDispatch} from "react-redux";
 
 import {Header, ProtectedRoute} from "./components";
 import gettingDataFromLS from "./helpers/gettingDataFromLS";
-import routes from "./routes/routes";
-import users from "./mocks/users";
-import stations from "./mocks/stations";
 import {addAllUsersAction} from "./store/users/action";
 import {addAllStationsAction} from "./store/stations/action";
 import {authUserAction} from "./store/user/action";
+import routes from "./routes/routes";
+import users from "./mocks/users";
+import stations from "./mocks/stations";
 
 import "./default.scss";
 

@@ -8,7 +8,7 @@ import Modal from '@mui/material/Modal';
 import {Button, TextField} from "@mui/material";
 import InputMask from "react-input-mask";
 
-import FormAddCarPark from "../FormAddCarPark/FormAddCarPark";
+import {FormAddCarPark} from "../index";
 import {getIdSelector} from "../../store/user/selectors";
 import {stationsSelector} from "../../store/stations/selectors";
 import {updateStationsAction} from "../../store/stations/action";

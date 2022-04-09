@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Formik} from "formik";
 import * as yup from "yup";
@@ -22,7 +23,6 @@ import Box from "@mui/material/Box";
 
 import {updateStationsAction} from "../../store/stations/action";
 import {stationsSelector} from "../../store/stations/selectors";
-import {useParams} from "react-router-dom";
 
 const SpareParts = ({brand, name, spareParts, user, station}) => {
 	const [isShowFormSparePart, setIsShowFormSparePart] = useState(false);
@@ -104,7 +104,7 @@ const ModalFormAddSparePart = ({open, onClose, spareParts, brandCar, nameCar}) =
 			const value = event.target.value;
 
 			if (value !== "other") {
-				const sp = spareParts.find(item => item.id == value);
+				const sp = spareParts.find(item => item.id === value);
 				setSparePart(sp);
 			}
 
@@ -138,7 +138,7 @@ const ModalFormAddSparePart = ({open, onClose, spareParts, brandCar, nameCar}) =
 				updateSpareParts.push(sparePart);
 			} else {
 				updateSpareParts.forEach(item => {
-					if (item.id == valueOption) {
+					if (item.id === valueOption) {
 						item.name = name;
 						item.count = +count + +item.count;
 						item.price = price;
