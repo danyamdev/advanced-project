@@ -1,12 +1,33 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
-import { Header, ProtectedRoute } from "./components";
+import {Header, ProtectedRoute} from "./components";
+import gettingDataFromLS from "./helpers/gettingDataFromLS";
+import {addAllUsersAction} from "./store/users/action";
+import {addAllStationsAction} from "./store/stations/action";
+import {authUserAction} from "./store/user/action";
 import routes from "./routes/routes";
+import users from "./mocks/users";
+import stations from "./mocks/stations";
 
 import "./default.scss";
 
 const App = () => {
+	const dispatch = useDispatch();
+	
+	const idUser = localStorage.getItem("ID_USER");
+	
+	gettingDataFromLS(users, "users", dispatch, addAllUsersAction);
+	gettingDataFromLS(stations, "stations", dispatch, addAllStationsAction);
+
+	if (idUser) {
+		const users = JSON.parse(localStorage.getItem("users"));
+		const user = users.find(user => user.id === +idUser);
+
+		dispatch(authUserAction(user));
+	}
+
 	return (
 		<>
 			<Header/>
@@ -24,7 +45,7 @@ const App = () => {
 							key={index}
 							path={route.path}
 							exact={route.exact}
-							render={() => <route.component />}
+							render={() => <route.component/>}
 						/>
 					)
 				)}

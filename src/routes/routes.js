@@ -1,8 +1,10 @@
 import {
 	MainPage,
-	ItemPage,
+	PointPage,
 	LogIn,
 	SingIn,
+	Profile,
+	Entry,
 	NotFound
 } from "../components";
 
@@ -15,9 +17,15 @@ const routes = [
 	},
 	{
 		path: '/point/:id',
-		component: ItemPage,
+		component: PointPage,
 		exact: true,
 		withAuth: false,
+	},
+	{
+		path: '/entry',
+		component: Entry,
+		exact: true,
+		withAuth: true,
 	},
 	{
 		path: "/login",
@@ -30,6 +38,12 @@ const routes = [
 		component: SingIn,
 		exact: true,
 		withAuth: false,
+	},
+	{
+		path: "/profile/:id",
+		component: Profile,
+		exact: true,
+		withAuth: true,
 	},
 	{
 		path: "/*",

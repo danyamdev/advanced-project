@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Проект "Станции техосмотра"
+Стек:
+- React
+- Redux
+- Material-UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+В проекте есть 3 роли
+- Неавторизованный пользователь
+- Клиент станции
+- Управляющий станции
 
-## Available Scripts
+При запуске приложения в store и в localStorage сохраняются моканые данные.
 
-In the project directory, you can run:
+##### 1 - Неавторизованный пользователь
+Первый экран - это список всех станций, которые находятся в городе.
+Пользователь может кликнуть по любой из станции и перейти на ее страницу, где отображается список автопарков(их маших) и список запчастей(название, количество, цена).
+Так же ему доступен функционал: регистрации и авторизации.
 
-### `npm start`
+##### 2 - Клиент станции
+Клиент так же может просматривать список всех станций, которые находятся в городе.
+Ему доступна кнопку "Выйти".
+На странице Профиль - клиент может увидеть свои данные(ФИО, email и список машин), ему доступен функционал добавления машины в свой автопарк.
+На странице Записаться на прием - клиент должен выбрать станцию, машину, запчасть и заполчить, затем заявка отправляется на станцию, которую выбрал клиент.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##### 3 - Управляющий станции
+Управляющий так же иметь доступ просматривать все станции, которые находятся в городе и ему тоже доступка кнопка для выхода из профиля.
+На странице Профиль, управляющий видет ифнормацию о себе(такую же как и клиент), только отличие в том, что управляющий добавляет станции.
+Когда управляющий заходит на одну из своих станции, ему доступен функционал:
+- Добавление автопарка и машины
+- Заказывать запчасти
+- Просматривать историю станции
+- Принимать машину на ТО
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+При регистрации, авторизации и добавления (станций, автопарков, машин, деталей) - были проведена валидация, так же для номера телефона прикручена маска.

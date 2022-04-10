@@ -6,18 +6,18 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Point = () => (
-	<Link to="/point/1">
+const Point = ({ id, name, city, street, home, phone }) => (
+	<Link to={`/point/${id}`}>
 		<Card sx={{minWidth: 275, maxWidth: 500, mb: 3.5}}>
 			<CardContent>
 				<Typography color="primary.main" gutterBottom>
-					г Ростов-на-Дону, пер Машиностроительный, д 11
+					{`${city}, ${street}, ${home}`}
 				</Typography>
 				<Typography sx={{mb: 1}} color="info.main">
-					ИП Сабрекова О. С.
+					{name}
 				</Typography>
 				<Typography sx={{fontSize: 14}} color="text.secondary">
-					Телефон +7 (989) 615-25-25
+					Телефон {phone}
 				</Typography>
 			</CardContent>
 			<CardActions>
