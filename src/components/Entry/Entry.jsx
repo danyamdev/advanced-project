@@ -21,7 +21,7 @@ const Entry = () => {
 	const [valueStationOption, setValueStationOption] = useState("");
 	const [valueCarOption, setValueCarOption] = useState("");
 	const [valueSparePart, setValueSparePart] = useState("");
-	const [isShowSnackbar, setIsShowSnackbar] = useState(false)
+	const [isShowSnackbar, setIsShowSnackbar] = useState(false);
 
 	const handleChangeValueStationOption = (event) => {
 		const value = event.target.value;
